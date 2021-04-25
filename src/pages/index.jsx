@@ -3,7 +3,7 @@ import styles from 'src/styles/Home.module.css';
 import { Footer } from 'src/components/Footer';
 import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
-import { useCallback } from 'react';
+// import { useEffect, useCallback } from 'react';
 
   // const handleClick = (e, foo) => {
   //   e.preventDefault();
@@ -20,15 +20,28 @@ export default function Home() {
     alert(foo);
   }, []);
 
+  useEffect(() => {
+    console.log('マウント時');
+    document.body.style.backgroundColor = 'lightblue ';
+    // 以下はアンマウント時の処理
+    return () => {
+      console.log('アンマウント時');
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
+  // 参照：
+  //https://ja.reactjs.org/docs/hooks-effect.html
+  //https://ja.reactjs.org/docs/state-and-lifecycle.html
+
   return (
     <div className={styles.container}>
       <Head>
         <title>Index Page</title>
       </Head>
       <Header />
-      <a href='./about' onClick={handleClick}>
+      {/* <a href='./about' onClick={handleClick}>
         ボタン
-      </a>
+      </a> */}
       <Main page='index' />
 
       <Footer />
