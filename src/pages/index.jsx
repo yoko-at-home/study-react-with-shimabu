@@ -39,9 +39,9 @@ export default function Home() {
         <title>Index Page</title>
       </Head>
       <Header />
-      {/* <a href='./about' onClick={handleClick}>
+      <a href='./about' onClick={handleClick}>
         ボタン
-      </a> */}
+      </a>
       <Main page='index' />
 
       <Footer />
